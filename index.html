@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAYANAN SERBA GUNA</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f3f6fb;color:#17243a}
+header{background:#0866d6;color:white;padding:22px 18px}
+.logo{font-size:23px;font-weight:bold}
+header p{margin:8px 0 18px}
+.search{width:100%;padding:14px;border:0;border-radius:10px;font-size:16px}
+main{padding:18px;max-width:900px;margin:auto}
+h2{font-size:19px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.category{background:white;padding:17px 5px;border-radius:12px;text-align:center;box-shadow:0 2px 8px #0001}
+.category span{font-size:28px}
+.category p{font-size:13px;margin-bottom:0}
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.service{background:white;padding:16px;border-radius:12px;box-shadow:0 2px 8px #0001}
+.service button,.primary{background:#0866d6;color:white;border:0;padding:11px;border-radius:8px;width:100%;font-weight:bold}
+button{cursor:pointer}
+.panel{background:white;padding:18px;border-radius:12px;margin-top:20px}
+footer{text-align:center;padding:25px;color:#68758a;font-size:13px}
+#result{margin-top:12px;color:#0866d6}
+@media(min-width:650px){.categories{grid-template-columns:repeat(4,1fr)}.services{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🔧 LAYANAN SERBA GUNA</div>
+  <p>Satu Aplikasi, Beragam Solusi</p>
+  <input class="search" id="search" placeholder="Cari layanan yang kamu butuhkan..." oninput="cari()">
+</header>
+
+<main>
+  <h2>Selamat Datang!</h2>
+  <p>Temukan jasa terpercaya di sekitar Bandung.</p>
+
+  <h2>Kategori Layanan</h2>
+  <div class="categories">
+    <div class="category"><span>🔧</span><p>Servis Elektronik</p></div>
+    <div class="category"><span>🏠</span><p>Perbaikan Rumah</p></div>
+    <div class="category"><span>🚗</span><p>Otomotif</p></div>
+    <div class="category"><span>🧹</span><p>Kebersihan</p></div>
+    <div class="category"><span>📦</span><p>Pengiriman</p></div>
+    <div class="category"><span>💻</span><p>Komputer</p></div>
+    <div class="category"><span>🎨</span><p>Desain</p></div>
+    <div class="category"><span>🛠️</span><p>Lainnya</p></div>
+  </div>
+
+  <h2>Layanan Populer</h2>
+  <div class="services" id="services">
+    <div class="service"><h3>❄️ Servis AC</h3><p>Perawatan dan perbaikan AC.</p><button onclick="pesan('Servis AC')">Pesan Jasa</button></div>
+    <div class="service"><h3>🧺 Servis Mesin Cuci</h3><p>Perbaikan mesin cuci.</p><button onclick="pesan('Servis Mesin Cuci')">Pesan Jasa</button></div>
+    <div class="service"><h3>🧊 Servis Kulkas</h3><p>Perawatan dan perbaikan kulkas.</p><button onclick="pesan('Servis Kulkas')">Pesan Jasa</button></div>
+    <div class="service"><h3>🏠 Perbaikan Rumah</h3><p>Berbagai perbaikan rumah.</p><button onclick="pesan('Perbaikan Rumah')">Pesan Jasa</button></div>
+    <div class="service"><h3>🚗 Servis Kendaraan</h3><p>Bantuan perawatan kendaraan.</p><button onclick="pesan('Servis Kendaraan')">Pesan Jasa</button></div>
+    <div class="service"><h3>🧹 Jasa Kebersihan</h3><p>Bantuan kebersihan rumah.</p><button onclick="pesan('Jasa Kebersihan')">Pesan Jasa</button></div>
+  </div>
+  <p id="result"></p>
+
+  <div class="panel">
+    <h2>Bergabung Bersama Kami</h2>
+    <p>Daftarkan diri sebagai penyedia jasa dan jangkau pelanggan lebih luas.</p>
+    <button class="primary" onclick="alert('Pendaftaran penyedia jasa akan segera tersedia.')">Daftar Penyedia Jasa</button>
+  </div>
+</main>
+
+<footer>
+  © 2026 LAYANAN SERBA GUNA<br>
+  Melayani Bandung, berkembang ke seluruh Indonesia.
+</footer>
+
+<script>
+function pesan(nama){
+ document.getElementById('result').textContent='Layanan dipilih: '+nama+'. Sistem pemesanan sedang dikembangkan.';
+}
+function cari(){
+ let q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.service').forEach(el=>{
+  el.style.display=el.innerText.toLowerCase().includes(q)?'block':'none';
+ });
+}
+</script>
+</body>
+</html>
